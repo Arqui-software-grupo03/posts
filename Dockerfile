@@ -12,4 +12,4 @@ WORKDIR /appPosts
 COPY . /appPosts
 RUN pip install -r /appPosts/requirements.txt
 
-EXPOSE 8000
+EXPOSE 8100

@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': True,
         'NAME': 'test',
-        'HOST': 'mongo4',
+        'HOST': 'mongo3',
         'PORT': 27017,
         # 'USER': 'db-username',
         # 'PASSWORD': 'password',

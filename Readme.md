@@ -13,4 +13,4 @@
 - `docker exec -it appPosts ./manage.py migrate`
 - `docker exec -it appPosts python ./manage.py runserver 0.0.0.0:8100`
 - try it:
-        http://localhost:8000/admin
+        http://localhost:8100/admin

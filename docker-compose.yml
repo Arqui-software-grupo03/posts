@@ -2,6 +2,7 @@ version: "3.5"
 services:
   app:
     container_name: appPosts
+    command: bash -c "python ./manage.py makemigrations posts && python ./manage.py migrate && python ./manage.py runserver 0.0.0.0:8100"
     restart: always
     build: .
     ports:
@@ -11,4 +12,3 @@ networks:
   default:
     external:
       name: mongodb
-    

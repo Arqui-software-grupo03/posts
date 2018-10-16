@@ -6,3 +6,15 @@ class Posts(models.Model):
 
     def __str__(self):
         return self.content
+
+class Hashtag(models.Model):
+    post = models.ForeignKey(
+        Posts,
+        related_name='hashtags',
+        on_delete=models.CASCADE
+    )
+
+    name = models.CharField(max_length=100, null=False)
+
+    def __str__(self):
+        return '#' + self.name

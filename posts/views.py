@@ -3,8 +3,8 @@ from rest_framework import viewsets
 # from posts.serializers import UserSerializer, GroupSerializer
 
 # from rest_framework import generics
-from .models import Posts, Hashtag
-from posts.serializers import PostsSerializer, HashtagSerializer
+from .models import Posts, Hashtag, Answer
+from posts.serializers import PostsSerializer, HashtagSerializer, AnswerSerializer
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -20,3 +20,10 @@ class HashtagViewSet(viewsets.ModelViewSet):
     """
     queryset = Hashtag.objects.all()
     serializer_class = HashtagSerializer
+
+class AnswerViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows answers to be viewed or edited.
+    """
+    queryset = Answer.objects.all()
+    serializer_class = AnswerSerializer

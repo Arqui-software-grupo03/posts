@@ -11,7 +11,7 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows posts to be viewed or edited.
     """
-    queryset = Posts.objects.all()#.order_by('-date_joined')
+    queryset = Posts.objects.all()
     serializer_class = PostsSerializer
 
 # class ListPostsView(generics.ListAPIView):

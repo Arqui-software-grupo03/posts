@@ -7,8 +7,7 @@ from posts import views
 
 router = routers.DefaultRouter()
 router.register(r'posts', views.PostViewSet)
-# router.register(r'users', views.UserViewSet)
-# router.register(r'groups', views.GroupViewSet)
+router.register(r'hashtags', views.HashtagViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

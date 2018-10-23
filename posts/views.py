@@ -1,8 +1,5 @@
-# from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-# from posts.serializers import UserSerializer, GroupSerializer
 
-# from rest_framework import generics
 from .models import Posts, Hashtag, Answer
 from posts.serializers import PostsSerializer, HashtagSerializer, AnswerSerializer
 

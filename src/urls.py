@@ -18,6 +18,5 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     path('schema/', schema_view),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('admin/', admin.site.urls),
-    # re_path('api/(?P<version>(v1|v2))/', include('posts.urls'))
+    path('admin/', admin.site.urls)
 ]

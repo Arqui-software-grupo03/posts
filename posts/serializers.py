@@ -1,4 +1,3 @@
-# from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from .models import Posts, Hashtag, Answer
 from django.core.exceptions import ObjectDoesNotExist
@@ -46,7 +45,6 @@ class PostsSerializer(serializers.HyperlinkedModelSerializer):
                 tags.append(tag)
         post = Posts.objects.create(content=validated_data['content'],
                                     pub_date=datetime.now())
-        # post.hashtags.set(tags)
         if len(tags) > 0:
             post.hashtags.add(*tags)
         for t in tags:

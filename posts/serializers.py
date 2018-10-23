@@ -52,3 +52,20 @@ class PostsSerializer(serializers.HyperlinkedModelSerializer):
         for t in tags:
             t.posts_set.add(post)
         return post
+
+    def update(self, instance, validated_data):
+        new_content = validated_data.get('content', instance.content).split(' ')
+        old_tags = instance.hashtags
+        for term in new_content:
+            if '#' in term:
+                i = term.find('#')
+                try:
+                    tag = Hashtag.objects.get(name=term[i+1:])
+                except ObjectDoesNotExist as err:
+                    tag = Hashtag.objects.create(name=term[i+1:])
+                if not tag in old_tags.all():
+                    instance.hashtags.add(tag)
+        instance.content = validated_data.get('content', instance.content)
+        instance.pub_date = validated_data.get('pub_date', instance.pub_date)
+        instance.save()
+        return instance

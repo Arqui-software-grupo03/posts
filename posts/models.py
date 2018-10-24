@@ -20,4 +20,5 @@ class Answer(models.Model):
     pub_date = models.DateTimeField(editable=False)
     post = models.ForeignKey(Posts,
                              on_delete=models.CASCADE,
-                             related_name='answers')
+                             related_name='answers'
+                             )

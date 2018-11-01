@@ -9,14 +9,14 @@ class Posts(models.Model):
     content = models.CharField(max_length=400, null=False)
     pub_date = models.DateTimeField(editable=False)
     hashtags = models.ManyToManyField(Hashtag)
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(null=False)
 
     def __str__(self):
         return self.content
 
 
 class Answer(models.Model):
-    author = models.CharField(max_length=100, null=False)
+    user_id = models.IntegerField(null=False)
     content = models.CharField(max_length=200, null=False)
     pub_date = models.DateTimeField(editable=False)
     post = models.ForeignKey(Posts,

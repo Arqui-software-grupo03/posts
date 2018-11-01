@@ -14,10 +14,10 @@ class HashtagSerializer(serializers.HyperlinkedModelSerializer):
 class AnswerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Answer
-        fields = ('id', 'author', 'content', 'pub_date', 'post')
+        fields = ('id', 'user_id', 'content', 'pub_date', 'post')
 
     def create(self, validated_data):
-        answer = Answer.objects.create(author=validated_data['author'],
+        answer = Answer.objects.create(user_id=validated_data['user_id'],
                                        content=validated_data['content'],
                                        pub_date=datetime.now(),
                                        post=validated_data['post'])

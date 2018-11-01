@@ -30,7 +30,7 @@ class PostsSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Posts
-        fields = ("id","content","pub_date", "hashtags", 'answers')
+        fields = ("id", "user_id", "content","pub_date", "hashtags", 'answers')
 
     def create(self, validated_data):
         content = validated_data['content'].split(' ')
@@ -43,7 +43,7 @@ class PostsSerializer(serializers.HyperlinkedModelSerializer):
                 except ObjectDoesNotExist as err:
                     tag = Hashtag.objects.create(name=term[i+1:])
                 tags.append(tag)
-        post = Posts.objects.create(content=validated_data['content'],
+        post = Posts.objects.create(content=validated_data['content'], user_id=validated_data['user_id'],
                                     pub_date=datetime.now())
         if len(tags) > 0:
             post.hashtags.add(*tags)

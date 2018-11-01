@@ -9,6 +9,7 @@ class Posts(models.Model):
     content = models.CharField(max_length=400, null=False)
     pub_date = models.DateTimeField(editable=False)
     hashtags = models.ManyToManyField(Hashtag)
+    user_id = models.IntegerField()
 
     def __str__(self):
         return self.content

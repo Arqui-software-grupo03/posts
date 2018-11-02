@@ -16,3 +16,5 @@ dj_static
 django-oauth-toolkit
 django-cors-headers
 django-allauth
+coreapi
+psycopg2-binary

@@ -11,4 +11,4 @@
 - `cd posts`
 - `docker-compose build` && `docker-compose up`
 - try it:
-        http://localhost:8100/posts
+        http://localhost:8002/posts

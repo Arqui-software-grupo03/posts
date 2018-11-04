@@ -6,6 +6,7 @@ class Hashtag(models.Model):
 
 
 class Posts(models.Model):
+    author = models.CharField(max_length=100, null=False)
     content = models.CharField(max_length=400, null=False)
     pub_date = models.DateTimeField(editable=False)
     hashtags = models.ManyToManyField(Hashtag)

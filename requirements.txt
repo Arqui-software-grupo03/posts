@@ -18,3 +18,4 @@ django-cors-headers
 django-allauth
 coreapi
 psycopg2-binary
+django-cors-headers

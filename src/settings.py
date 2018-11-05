@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': True,
         'NAME': 'test',
-        'HOST': 'arquitran_mongo',
+        'HOST': 'mongo',
         'PORT': 27017,
         # 'USER': 'db-username',
         # 'PASSWORD': 'password',

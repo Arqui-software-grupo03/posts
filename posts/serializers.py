@@ -8,20 +8,20 @@ from datetime import datetime
 class HashtagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Hashtag
-        fields = ("id", "name", "posts_set")
+        fields = ("hashtag_id", "name", "posts_set")
 
 
 class AnswerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Answer
-        fields = ('id', 'user_id', 'content', 'pub_date', 'post_identifier', 'post')
+        fields = ('answer_id', 'user_id', 'content', 'pub_date', 'post_identifier')
 
     def create(self, validated_data):
         answer = Answer.objects.create(user_id=validated_data['user_id'],
                                        content=validated_data['content'],
                                        pub_date=datetime.now(),
                                        post_identifier=validated_data['post_identifier'],
-                                       post = Posts.objects.get(id = validated_data['post_identifier']))
+                                       post = Posts.objects.get(post_id = validated_data['post_identifier']))
         return answer
 
 
@@ -31,7 +31,7 @@ class PostsSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Posts
-        fields = ("id", "user_id", "content","pub_date", "hashtags", 'answers')
+        fields = ("post_id", "user_id", "content","pub_date", "hashtags", "answers")
 
     def create(self, validated_data):
         content = validated_data['content'].split(' ')

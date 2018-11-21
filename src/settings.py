@@ -25,7 +25,7 @@ SECRET_KEY = 'ztv!az0@ew5ykk+sd9^0@#1#$fd*t1a6kh73bkd20ano&8tw(w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -38,18 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'posts'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'src.urls'
 
@@ -80,7 +85,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': True,
         'NAME': 'test',
-        'HOST': 'mongo3',
+        'HOST': 'mongo',
         'PORT': 27017,
         # 'USER': 'db-username',
         # 'PASSWORD': 'password',

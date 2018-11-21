@@ -9,6 +9,7 @@ router = routers.DefaultRouter()
 router.register(r'posts', views.PostViewSet)
 router.register(r'hashtags', views.HashtagViewSet)
 router.register(r'posts/(?P<post>[^/.]+)/answers', views.AnswerViewSet)
+router.register(r'posts/user/(?P<author>[^/.]+)', views.UsersPostsViewSet)
 
 schema_view = schemas.get_schema_view(title="Posts API")
 

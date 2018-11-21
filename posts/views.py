@@ -28,6 +28,17 @@ class AnswerViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return Answer.objects.filter(post=self.kwargs['post'])
 
+class UsersPostsViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows posts from an specific user to be viewed ¿or edited?.
+    """
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
+
+    def get_queryset(self):
+        return Posts.objects.filter(user_id=self.kwargs['author'])
+
+
 # class AnswerList(generics.ListAPIView):
 #     serializer_class = AnswerSerializer
 #
